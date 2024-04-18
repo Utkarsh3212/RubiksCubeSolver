@@ -7,6 +7,8 @@
 
 #include <bits/stdc++.h>
 
+#define getColour getColor
+#define getColourLetter getColorLetter
 using namespace std;
 
 /* A base class for representation of all our Rubiks Cube Models.
@@ -120,7 +122,7 @@ class RubiksCube {
         virtual RubiksCube &u2()const=0;
 
         string getCornerColourString(uint8_t ind) const;
-        uint8_t getCornerColour(uint8_t ind) const;
+        uint8_t getCornerIndex(uint8_t ind) const;
         uint8_t getCornerOrientation(uint8_t) const;
 };
 
