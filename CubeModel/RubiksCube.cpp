@@ -147,7 +147,7 @@ RubiksCube &RubiksCube::invert(RubiksCube::MOVE ind) {
 
 void RubiksCube::print() const
 {
-    cout<<"Rubik's Cube:/n/n";
+    cout<<"Rubik's Cube:\n\n";
 
     for(int row=0;row<=2;row++)
     {
