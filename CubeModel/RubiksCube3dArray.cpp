@@ -33,9 +33,9 @@ public:
             }
         }
     }
-    COLOUR getColor(FACE face, unsigned row, unsigned col) const override {
-        char color = cube[int(face)][row][col];
-        switch (color) {
+    COLOUR getColour(FACE face, unsigned row, unsigned col) const override {
+        char Colour = cube[int(face)][row][col];
+        switch (Colour) {
             case 'B':
                 return COLOUR::BLUE;
             case 'R':
@@ -55,7 +55,7 @@ public:
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 3; j++) {
                 for (int k = 0; k < 3; k++) {
-                    if (this->cube[i][j][k] == getColorLetter(COLOUR(i))) continue;
+                    if (this->cube[i][j][k] == getColourLetter(COLOUR(i))) continue;
                     return false;
                 }
             }

@@ -31,15 +31,15 @@ public:
             for (int j = 0; j < 3; j++) {
 
                 for (int k = 0; k < 3; k++) {
-                    cube[i * 9 + j * 3 + k] = getColorLetter(COLOUR(i));
+                    cube[i * 9 + j * 3 + k] = getColourLetter(COLOUR(i));
                 }
             }
         }
     }
 
-    COLOUR getColor(FACE face, unsigned row, unsigned col) const override {
-        char color = cube[getIndex((int)face, (int)row, (int)col)];
-        switch (color) {
+    COLOUR getColour(FACE face, unsigned row, unsigned col) const override {
+        char colour = cube[getIndex((int)face, (int)row, (int)col)];
+        switch (colour) {
             case 'B':
                 return COLOUR::BLUE;
             case 'R':
@@ -60,7 +60,7 @@ public:
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 3; j++) {
                 for (int k = 0; k < 3; k++) {
-                    if (this->cube[getIndex(i, j, k)] == getColorLetter(COLOUR(i))) continue;
+                    if (this->cube[getIndex(i, j, k)] == getColourLetter(COLOUR(i))) continue;
                     return false;
                 }
             }

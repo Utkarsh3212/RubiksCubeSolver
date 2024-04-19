@@ -76,4 +76,5 @@ public:
             solved_side_config[side]=bitboard[side];
         }
     }
+
 };
