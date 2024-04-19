@@ -1,5 +1,5 @@
 //
-// Created by utkarsh on 06-04-2024.
+// Created by Utkarsh Singh on 06-04-2024.
 //
 
 #ifndef RUBIKSCUBESOLVER_RUBIKSCUBE_H
@@ -97,29 +97,29 @@ class RubiksCube {
 
         RubiksCube &invert(MOVE ind);
 
-        virtual RubiksCube &f()const=0;
-        virtual RubiksCube &fPrime()const=0;
-        virtual RubiksCube &f2()const=0;
+        virtual RubiksCube &f()=0;
+        virtual RubiksCube &fPrime()=0;
+        virtual RubiksCube &f2()=0;
 
-        virtual RubiksCube &r()const=0;
-        virtual RubiksCube &rPrime()const=0;
-        virtual RubiksCube &r2()const=0;
+        virtual RubiksCube &r()=0;
+        virtual RubiksCube &rPrime()=0;
+        virtual RubiksCube &r2()=0;
 
-        virtual RubiksCube &b()const=0;
-        virtual RubiksCube &bPrime()const=0;
-        virtual RubiksCube &b2()const=0;
+        virtual RubiksCube &b()=0;
+        virtual RubiksCube &bPrime()=0;
+        virtual RubiksCube &b2()=0;
 
-        virtual RubiksCube &d()const=0;
-        virtual RubiksCube &dPrime()const=0;
-        virtual RubiksCube &d2()const=0;
+        virtual RubiksCube &d()=0;
+        virtual RubiksCube &dPrime()=0;
+        virtual RubiksCube &d2()=0;
 
-        virtual RubiksCube &l()const=0;
-        virtual RubiksCube &lPrime()const=0;
-        virtual RubiksCube &l2()const=0;
+        virtual RubiksCube &l()=0;
+        virtual RubiksCube &lPrime()=0;
+        virtual RubiksCube &l2()=0;
 
-        virtual RubiksCube &u()const=0;
-        virtual RubiksCube &uPrime()const=0;
-        virtual RubiksCube &u2()const=0;
+        virtual RubiksCube &u()=0;
+        virtual RubiksCube &uPrime()=0;
+        virtual RubiksCube &u2()=0;
 
         string getCornerColourString(uint8_t ind) const;
         uint8_t getCornerIndex(uint8_t ind) const;
