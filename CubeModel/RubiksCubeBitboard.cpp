@@ -308,44 +308,44 @@ public:
     uint64_t getCorners() {
         uint64_t ret = 0;
         string top_front_right = "";
-        top_front_right += getColorLetter(getColor(FACE::UP, 2, 2));
-        top_front_right += getColorLetter(getColor(FACE::FRONT, 0, 2));
-        top_front_right += getColorLetter(getColor(FACE::RIGHT, 0, 0));
+        top_front_right += getColourLetter(getColour(FACE::UP, 2, 2));
+        top_front_right += getColourLetter(getColour(FACE::FRONT, 0, 2));
+        top_front_right += getColourLetter(getColour(FACE::RIGHT, 0, 0));
 
         string top_front_left = "";
-        top_front_left += getColorLetter(getColor(FACE::UP, 2, 0));
-        top_front_left += getColorLetter(getColor(FACE::FRONT, 0, 0));
-        top_front_left += getColorLetter(getColor(FACE::LEFT, 0, 2));
+        top_front_left += getColourLetter(getColour(FACE::UP, 2, 0));
+        top_front_left += getColourLetter(getColour(FACE::FRONT, 0, 0));
+        top_front_left += getColourLetter(getColour(FACE::LEFT, 0, 2));
 
         string top_back_left = "";
-        top_back_left += getColorLetter(getColor(FACE::UP, 0, 0));
-        top_back_left += getColorLetter(getColor(FACE::BACK, 0, 2));
-        top_back_left += getColorLetter(getColor(FACE::LEFT, 0, 0));
+        top_back_left += getColourLetter(getColour(FACE::UP, 0, 0));
+        top_back_left += getColourLetter(getColour(FACE::BACK, 0, 2));
+        top_back_left += getColourLetter(getColour(FACE::LEFT, 0, 0));
 
         string top_back_right = "";
-        top_back_right += getColorLetter(getColor(FACE::UP, 0, 2));
-        top_back_right += getColorLetter(getColor(FACE::BACK, 0, 0));
-        top_back_right += getColorLetter(getColor(FACE::RIGHT, 0, 2));
+        top_back_right += getColourLetter(getColour(FACE::UP, 0, 2));
+        top_back_right += getColourLetter(getColour(FACE::BACK, 0, 0));
+        top_back_right += getColourLetter(getColour(FACE::RIGHT, 0, 2));
 
         string bottom_front_right = "";
-        bottom_front_right += getColorLetter(getColor(FACE::DOWN, 0, 2));
-        bottom_front_right += getColorLetter(getColor(FACE::FRONT, 2, 2));
-        bottom_front_right += getColorLetter(getColor(FACE::RIGHT, 2, 0));
+        bottom_front_right += getColourLetter(getColour(FACE::DOWN, 0, 2));
+        bottom_front_right += getColourLetter(getColour(FACE::FRONT, 2, 2));
+        bottom_front_right += getColourLetter(getColour(FACE::RIGHT, 2, 0));
 
         string bottom_front_left = "";
-        bottom_front_left += getColorLetter(getColor(FACE::DOWN, 0, 0));
-        bottom_front_left += getColorLetter(getColor(FACE::FRONT, 2, 0));
-        bottom_front_left += getColorLetter(getColor(FACE::LEFT, 2, 2));
+        bottom_front_left += getColourLetter(getColour(FACE::DOWN, 0, 0));
+        bottom_front_left += getColourLetter(getColour(FACE::FRONT, 2, 0));
+        bottom_front_left += getColourLetter(getColour(FACE::LEFT, 2, 2));
 
         string bottom_back_right = "";
-        bottom_back_right += getColorLetter(getColor(FACE::DOWN, 2, 2));
-        bottom_back_right += getColorLetter(getColor(FACE::BACK, 2, 0));
-        bottom_back_right += getColorLetter(getColor(FACE::RIGHT, 2, 2));
+        bottom_back_right += getColourLetter(getColour(FACE::DOWN, 2, 2));
+        bottom_back_right += getColourLetter(getColour(FACE::BACK, 2, 0));
+        bottom_back_right += getColourLetter(getColour(FACE::RIGHT, 2, 2));
 
         string bottom_back_left = "";
-        bottom_back_left += getColorLetter(getColor(FACE::DOWN, 2, 0));
-        bottom_back_left += getColorLetter(getColor(FACE::BACK, 2, 2));
-        bottom_back_left += getColorLetter(getColor(FACE::LEFT, 2, 0));
+        bottom_back_left += getColourLetter(getColour(FACE::DOWN, 2, 0));
+        bottom_back_left += getColourLetter(getColour(FACE::BACK, 2, 2));
+        bottom_back_left += getColourLetter(getColour(FACE::LEFT, 2, 0));
 
         ret |= get5bitCorner(top_front_right);
         ret = ret << 5;
