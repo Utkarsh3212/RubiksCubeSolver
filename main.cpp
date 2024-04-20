@@ -69,5 +69,19 @@ int main()
 //    for (auto move: solve_moves) cout << bit_cube.getMove(move) << " ";
 //    cout<<'\n';
 //    iddfsSolver.rubiksCube.print();
+
+//    RubiksCubeBitboard cube;
+//    cube.print();
+//
+//    vector<RubiksCube::MOVE> shuffle_moves = cube.randomCubeShuffle(8);
+//    for (auto move: shuffle_moves) cout << cube.getMove(move) << " ";
+//    cout << "\n";
+//    cube.print();
+//
+//    IDDFSSolver<RubiksCubeBitboard,HashBitboard> iddfsSolver(cube);
+//    vector<RubiksCube::MOVE> solve_moves = iddfsSolver.solve();
+//    for (auto move: solve_moves) cout << cube.getMove(move) << " ";
+//    cout<<'\n';
+//    iddfsSolver.rubiksCube.print();
 }
 
