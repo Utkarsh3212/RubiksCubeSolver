@@ -7,8 +7,6 @@
 
 #include <bits/stdc++.h>
 
-#define getColour getColor
-#define getColourLetter getColorLetter
 using namespace std;
 
 /* A base class for representation of all our Rubiks Cube Models.

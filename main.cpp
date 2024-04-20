@@ -10,6 +10,14 @@ using namespace std;
 
 int main()
 {
+//    FOLLOWING CODE USED FOR TESTING PURPOSES.
+//    !! MAKE SURE TO NOT UNCOMMENT MULTIPLE SECTIONS OF CODE COMMENTS AT THE SAME TIME
+//    SEPARATED BY "--------" AS THEY MAY HAVE CONFLICTING VARIABLE NAMES!!
+
+
+//    DFS-SOLVER----------------------------------------------------------------------------------------------------------------------------------------------
+
+
 //    RubiksCube3dArray cube;
 //    cube.print();
 //
@@ -26,6 +34,10 @@ int main()
 //    cout << "\n";
 //    DFSSolver.rubiksCube.print();
 
+
+//    BFS-SOLVER----------------------------------------------------------------------------------------------------------------------------------------------
+
+
 //    RubiksCube3dArray bit_cube;
 //    bit_cube.print();
 //
@@ -40,7 +52,11 @@ int main()
 //    cout<<'\n';
 //    bfsSolver.rubiksCube.print();
 
-//    RubiksCube3dArray bit_cube;
+
+//    IDDFS-SOLVER----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+//    RubiksCube1dArray bit_cube;
 //    bit_cube.print();
 //
 //    vector<RubiksCube::MOVE> shuffle_moves = bit_cube.randomCubeShuffle(8);
@@ -48,7 +64,7 @@ int main()
 //    cout << "\n";
 //    bit_cube.print();
 //
-//    IDDFSSolver<RubiksCube3dArray,int> iddfsSolver(bit_cube);
+//    IDDFSSolver<RubiksCube1dArray,int> iddfsSolver(bit_cube);
 //    vector<RubiksCube::MOVE> solve_moves = iddfsSolver.solve();
 //    for (auto move: solve_moves) cout << bit_cube.getMove(move) << " ";
 //    cout<<'\n';
