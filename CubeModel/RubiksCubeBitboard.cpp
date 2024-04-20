@@ -5,7 +5,7 @@
 
 class RubiksCubeBitboard : public RubiksCube{
 private:
-    uint64_t solved_side_config[6];
+    uint64_t solved_side_config[6]{};
     int arr[3][3]={{0,1,2},
                    {7,8,3},
                    {6,5,4}};
@@ -63,7 +63,7 @@ private:
     }
 
 public:
-    uint64_t bitboard[6];
+    uint64_t bitboard[6]{};
 
     RubiksCubeBitboard()
     {
@@ -71,7 +71,7 @@ public:
             uint64_t clr=1<<side;
             bitboard[side]=0;
             for(int faceIdx=0;faceIdx<8;faceIdx++){
-                bitboard[side] |= clr<<(8*side);
+                bitboard[side] |= clr<<(8*faceIdx);
             }
             solved_side_config[side]=bitboard[side];
         }
@@ -80,7 +80,6 @@ public:
     COLOUR getColour(FACE face, unsigned row, unsigned col) const override {
         int idx = arr[row][col];
         if (idx == 8) return (COLOUR)((int) face);
-
         uint64_t side = bitboard[(int) face];
         uint64_t colour = (side >> (8 * idx)) & one_8;
 
@@ -295,6 +294,10 @@ public:
         return true;
     }
 
+    bool operator!=(const RubiksCubeBitboard &r1) const {
+        return !(operator==(r1));
+    }
+
     RubiksCubeBitboard &operator=(const RubiksCubeBitboard &r1) {
         for (int i = 0; i < 6; i++) {
             bitboard[i] = r1.bitboard[i];
@@ -376,6 +379,6 @@ struct HashBitboard {
     size_t operator()(const RubiksCubeBitboard &r1) const {
         uint64_t final_hash = r1.bitboard[0];
         for (int i = 1; i < 6; i++) final_hash ^= r1.bitboard[i];
-        return (size_t) final_hash;
+        return static_cast<size_t>(final_hash);
     }
 };
