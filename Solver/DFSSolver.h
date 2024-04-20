@@ -3,7 +3,6 @@
 //
 #include "bits/stdc++.h"
 #include "../CubeModel/RubiksCube.h"
-#include "../CubeModel/RubiksCube3dArray.cpp"
 
 #ifndef RUBIKS_CUBE_DFS_SOLVER_H
 #define RUBIKS_CUBE_DFS_SOLVER_H
