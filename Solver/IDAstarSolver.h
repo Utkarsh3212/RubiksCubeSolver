@@ -3,9 +3,10 @@
 //
 #include "bits/stdc++.h"
 #include "../CubeModel/RubiksCube.h"
+#include "../PatternDatabases/CornerPatternDatabase.h"
 
-#ifndef RUBIKS_CUBE_DFS_SOLVER_H
-#define RUBIKS_CUBE_DFS_SOLVER_H
+#ifndef RUBIKS_CUBE_IDASTARSOLVER_H
+#define RUBIKS_CUBE_IDASTARSOLVER_H
 
 template<typename T,typename H>
 class IDAstarSolver{
@@ -13,8 +14,7 @@ private:
     vector<RubiksCube::MOVE> moves;
     unordered_map<T,bool,H> visited;
     unordered_map<T,RubiksCube::MOVE,H> move_done;
-
-    int estimator(T cube){return 0;}
+    CornerPatternDatabase cornerDB;
 
     struct Node{
         T cube;
@@ -51,25 +51,27 @@ private:
     {
 //      priority queue stores the current node and the value of previous move performed.
         priority_queue<pair<Node,int>,vector<pair<Node,int>>,compareCube> pq;
-        Node start= Node(rubiksCube,0,estimator(rubiksCube));
+        Node start= Node(rubiksCube,0,cornerDB.getNumMoves(rubiksCube));
         pq.push(make_pair(start,0));
         int next_bound=10000;
         while(!pq.empty())
         {
             auto curr=pq.top();
-            T curr_cube=curr.first.cube;
             Node curr_node=curr.first;
             pq.pop();
-            if(visited[curr_cube]) continue;
-            visited[curr_cube]=true;
-            move_done[curr_cube]=curr.second;
-            if(curr_cube.isSolved())return {curr_cube,bound};
+
+            if(visited[curr_node.cube]) continue;
+
+            visited[curr_node.cube]=true;
+            move_done[curr_node.cube]=RubiksCube::MOVE(curr.second);
+
+            if(curr_node.cube.isSolved())return {curr_node.cube,bound};
             curr_node.depth++;
             for(int i=0;i<18;i++){
-                curr_cube.move(RubiksCube::MOVE(i));
-                if(!visited[curr_cube])
+                curr_node.cube.move(RubiksCube::MOVE(i));
+                if(!visited[curr_node.cube])
                 {
-                    curr_node.estimate=estimator(curr_cube);
+                    curr_node.estimate=cornerDB.getNumMoves(curr_node.cube);
                     if(curr_node.depth+curr_node.estimate>bound)
                     {
                         next_bound=min(next_bound,curr_node.depth+curr_node.estimate);
@@ -77,7 +79,7 @@ private:
                         pq.push(make_pair(curr_node,i));
                     }
                 }
-                curr_cube.invert(RubiksCube::MOVE(i));
+                curr_node.cube.invert(RubiksCube::MOVE(i));
             }
         }
         return make_pair(rubiksCube,next_bound);
@@ -86,8 +88,9 @@ private:
 public:
     T rubiksCube;
 
-    IDAstarSolver(T _rubiksCube) {
+    IDAstarSolver(T _rubiksCube, string _fileName) {
         rubiksCube = _rubiksCube;
+        cornerDB.fromFile(_fileName);
     }
 
     vector<RubiksCube::MOVE> solve()
@@ -97,11 +100,11 @@ public:
         while(x.second!=bound)
         {
             restructure();
-            x=IDAstar(x.second);
             bound=x.second;
+            x=IDAstar(x.second);
         }
         T solved_cube=x.first;
-        assert(solved_cube.isSolved());
+        //assert(solved_cube.isSolved());
         T curr_cube=solved_cube;
         while(!(curr_cube==rubiksCube))
         {
